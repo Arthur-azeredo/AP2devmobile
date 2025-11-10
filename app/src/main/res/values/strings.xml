@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="opcoes_companhia">
+        <item>Sozinho(a)</item>
+        <item>Com o(a) parceiro(a)</item>
+        <item>Com amigos</item>
+        <item>Com a família</item>
+    </string-array>
+</resources>

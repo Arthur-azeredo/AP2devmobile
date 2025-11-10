@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Qual o orçamento?"
+    android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupBudget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/radioGratis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grátis" />
+
+        <RadioButton
+            android:id="@+id/radioBarato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pagando pouco (até R$50)" />
+
+        <RadioButton
+            android:id="@+id/radioSemLimite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sem limites" />
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".EnergyActivity">
+
+    <TextView
+        android:id="@+id/txtPerguntaEnergia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Como está sua bateria social hoje?"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupEnergia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@+id/radioEremita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quero ficar em casa (modo eremita)" />
+
+        <RadioButton
+            android:id="@+id/radioRelax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Algo relaxante (passeio tranquilo)" />
+
+        <RadioButton
+            android:id="@+id/radioAgito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pronto para agito (energia total!)" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnProximoEnergia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:text="Próximo" />
+
+</LinearLayout>
