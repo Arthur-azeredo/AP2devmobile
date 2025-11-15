@@ -1,52 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".EnergyActivity">
 
-    <TextView
-        android:id="@+id/txtPerguntaEnergia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Como está sua bateria social hoje?"
-        android:textSize="20sp" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupEnergia"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_energy" />
 
-        <RadioButton
-            android:id="@+id/radioEremita"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txtPerguntaEnergia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quero ficar em casa (modo eremita)" />
+            android:text="Como está sua bateria social hoje?"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
 
-        <RadioButton
-            android:id="@+id/radioRelax"
+        <RadioGroup
+            android:id="@+id/radioGroupEnergia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <RadioButton
+                android:id="@+id/radioEremita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#33FFFFFF"
+                android:button="@null"
+                android:drawableStart="@drawable/custom_checkbox_selector"
+                android:drawablePadding="12dp"
+                android:padding="12dp"
+                android:text="Quero ficar em casa (modo eremita)"
+                android:textColor="@android:color/white" />
+
+            <RadioButton
+                android:id="@+id/radioRelax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#33FFFFFF"
+                android:button="@null"
+                android:drawableStart="@drawable/custom_checkbox_selector"
+                android:drawablePadding="12dp"
+                android:padding="12dp"
+                android:text="Algo relaxante (passeio tranquilo)"
+                android:textColor="@android:color/white" />
+
+            <RadioButton
+                android:id="@+id/radioAgito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#33FFFFFF"
+                android:button="@null"
+                android:drawableStart="@drawable/custom_checkbox_selector"
+                android:drawablePadding="12dp"
+                android:padding="12dp"
+                android:text="Pronto para agito (energia total!)"
+                android:textColor="@android:color/white" />
+        </RadioGroup>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnProximoEnergia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Algo relaxante (passeio tranquilo)" />
-
-        <RadioButton
-            android:id="@+id/radioAgito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pronto para agito (energia total!)" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/btnProximoEnergia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
-        android:text="Próximo" />
-
-</LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/azul_vibrante"
+            android:textColor="@android:color/white"
+            android:text="Próximo" />
+    </LinearLayout>
+</FrameLayout>

@@ -24,7 +24,13 @@ class ResultActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_result)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         val nivelEnergia = intent.getStringExtra("NIVEL_ENERGIA")
         val companhia = intent.getStringExtra("COMPANHIA")
@@ -34,16 +40,20 @@ class ResultActivity : AppCompatActivity() {
 
         recomendacaoFinal = gerarRecomendacao(nivelEnergia, companhia, orcamento, interesses, isDiurno)
 
+        val backgroundImage = findViewById<ImageView>(R.id.background_image)
         val txtTitulo = findViewById<TextView>(R.id.txtResultadoTitulo)
         val txtDescricao = findViewById<TextView>(R.id.txtResultadoDescricao)
-        val imgResultado = findViewById<ImageView>(R.id.imgResultado)
 
         txtTitulo.text = recomendacaoFinal.titulo
         txtDescricao.text = recomendacaoFinal.descricao
-        // imgResultado.setImageResource(recomendacaoFinal.imageResId) // (Requer imagens no drawable)
+
+        if (recomendacaoFinal.imageResId != 0) {
+            backgroundImage.setImageResource(recomendacaoFinal.imageResId)
+        }
 
         val btnMapa = findViewById<Button>(R.id.btnAbrirMapa)
         val btnShare = findViewById<Button>(R.id.btnCompartilhar)
+        val btnNovaAtividade = findViewById<Button>(R.id.btnNovaAtividade)
 
         btnMapa.setOnClickListener {
             val query = Uri.encode(recomendacaoFinal.mapQuery)
@@ -71,6 +81,13 @@ class ResultActivity : AppCompatActivity() {
             val shareIntent = Intent.createChooser(sendIntent, "Compartilhar este plano via...")
             startActivity(shareIntent)
         }
+
+        btnNovaAtividade.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun gerarRecomendacao(
@@ -81,12 +98,39 @@ class ResultActivity : AppCompatActivity() {
         isDiurno: Boolean
     ): Recomendacao {
 
+        if (interesses != null) {
+            if (interesses.contains("gastro")) {
+                return Recomendacao(
+                    titulo = "Experiência Gastronômica",
+                    descricao = "Que tal conhecer um restaurante novo ou cozinhar algo especial?",
+                    mapQuery = if (orcamento == "gratis") "receitas fáceis" else "restaurantes próximos",
+                    imageResId = R.drawable.bg_result_gastro
+                )
+            }
+            if (interesses.contains("cultura")) {
+                return Recomendacao(
+                    titulo = "Passeio Cultural",
+                    descricao = "Visite um museu, uma exposição de arte ou assista a uma peça de teatro.",
+                    mapQuery = "museus próximos",
+                    imageResId = R.drawable.bg_result_cultura
+                )
+            }
+            if (interesses.contains("arlivre") && orcamento == "gratis") {
+                return Recomendacao(
+                    titulo = "Passeio no Parque",
+                    descricao = "Aproveite o dia (ou a noite) para caminhar, andar de bicicleta ou fazer um piquenique.",
+                    mapQuery = "parques próximos",
+                    imageResId = R.drawable.bg_result_arlivre
+                )
+            }
+        }
+
         if (energia == "eremita") {
             return Recomendacao(
                 titulo = "Maratona de Séries",
                 descricao = "Nada melhor que seu sofá! Prepare a pipoca, escolha um streaming e relaxe.",
                 mapQuery = "supermercado pipoca",
-                imageResId = 0
+                imageResId = R.drawable.bg_result_series
             )
         }
 
@@ -95,16 +139,7 @@ class ResultActivity : AppCompatActivity() {
                 titulo = "Bar ou Balada",
                 descricao = "Junte os amigos e aproveite a noite! Uma boa música e conversas são a pedida.",
                 mapQuery = "bares ${if (isDiurno) "com happy hour" else "próximos"}",
-                imageResId = 0
-            )
-        }
-
-        if (interesses != null && interesses.contains("arlivre") && orcamento == "gratis") {
-            return Recomendacao(
-                titulo = "Passeio no Parque",
-                descricao = "Aproveite o dia (ou a noite) para caminhar, andar de bicicleta ou fazer um piquenique.",
-                mapQuery = "parques próximos",
-                imageResId = 0
+                imageResId = R.drawable.bg_result_balada
             )
         }
 
@@ -112,7 +147,7 @@ class ResultActivity : AppCompatActivity() {
             titulo = "Ver um Filme",
             descricao = "Um clássico nunca falha. Veja o que está em cartaz no cinema ou no streaming.",
             mapQuery = "cinema",
-            imageResId = 0
+            imageResId = R.drawable.bg_result_cinema
         )
     }
 }

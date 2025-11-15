@@ -1,4 +1,5 @@
 <resources>
+    <string name="Weekendapp">Weekendapp</string>
     <string-array name="opcoes_companhia">
         <item>Sozinho(a)</item>
         <item>Com o(a) parceiro(a)</item>

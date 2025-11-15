@@ -14,6 +14,11 @@ class EnergyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_energy)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         val radioGroupEnergia = findViewById<RadioGroup>(R.id.radioGroupEnergia)
         val btnProximo = findViewById<Button>(R.id.btnProximoEnergia)

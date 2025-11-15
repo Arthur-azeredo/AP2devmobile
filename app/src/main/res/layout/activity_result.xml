@@ -1,55 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".ResultActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sua atividade ideal para o FDS é:"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/txtResultadoTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Carregando..."
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
     <ImageView
-        android:id="@+id/imgResultado"
+        android:id="@+id/background_image"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:src="@drawable/ic_launcher_background" android:scaleType="centerCrop"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/txtResultadoDescricao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"/>
-
-    <Button
-        android:id="@+id/btnAbrirMapa"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Encontrar locais no Mapa"
-        android:layout_marginTop="32dp" />
+        android:layout_height="match_parent"
+        android:background="#99000000" />
 
-    <Button
-        android:id="@+id/btnCompartilhar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Compartilhar este plano"
-        android:layout_marginTop="8dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sua atividade ideal para o FDS é:"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtResultadoTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carregando..."
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtResultadoDescricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="..."
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnAbrirMapa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/azul_vibrante"
+            android:textColor="@android:color/white"
+            android:text="Encontrar locais no Mapa" />
+
+        <Button
+            android:id="@+id/btnCompartilhar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/azul_vibrante"
+            android:textColor="@android:color/white"
+            android:text="Compartilhar este plano" />
+
+        <Button
+            android:id="@+id/btnNovaAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/azul_vibrante"
+            android:textColor="@android:color/white"
+            android:text="Escolher Nova Atividade" />
+    </LinearLayout>
+</FrameLayout>
