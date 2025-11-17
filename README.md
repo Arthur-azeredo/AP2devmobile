@@ -58,36 +58,6 @@ Selecione a pasta clonada do repositório
 O Android Studio fará isso automaticamente.
 Se necessário, clique em Sync Project with Gradle Files.
 
-4. Adicione as Imagens de Fundo
-
-Para que as telas funcionem corretamente, coloque as imagens em:
-
-app/src/main/res/drawable/
-
-
-Com os seguintes nomes:
-
-bg_main.png
-
-bg_energy.png
-
-bg_company_budget.png
-
-bg_interests.png
-
-bg_result_gastro.png
-
-bg_result_cultura.png
-
-bg_result_arlivre.png
-
-bg_result_series.png
-
-bg_result_balada.png
-
-bg_result_cinema.png
-
-(Aceita .jpg também.)
 
 5. Execute o App
 
@@ -97,16 +67,21 @@ Clique no botão Run ▶️ no Android Studio
 
 📸 Capturas de Tela
 1. Tela Inicial
+<img width="1080" height="2400" alt="Screenshot_20251116_234908" src="https://github.com/user-attachments/assets/066aac98-1fa8-4741-be45-3f3228729960" />
 
 A porta de entrada para descobrir a melhor atividade do seu fim de semana.
 
 2. Telas do Questionário
+<img width="1080" height="2400" alt="Screenshot_20251116_235004" src="https://github.com/user-attachments/assets/936ae2e2-590e-4b98-8b2a-58118bef0335" />
+<img width="1080" height="2400" alt="Screenshot_20251116_235021" src="https://github.com/user-attachments/assets/9a3acd10-a02a-4c44-b2fa-278d0c43c430" />
+<img width="1080" height="2400" alt="Screenshot_20251116_235038" src="https://github.com/user-attachments/assets/fe881ad6-1ddb-4eec-84f1-8f27631fd5c9" />
 
 Interface intuitiva e consistente para coletar preferências.
 
-Tela de Energia	Tela de Companhia	Tela de Interesses
-imagem aqui	imagem aqui	imagem aqui
 3. Tela de Resultado
+<img width="1080" height="2400" alt="Screenshot_20251116_235053" src="https://github.com/user-attachments/assets/35cd707e-9989-4e0b-bc74-4c2c0775a962" />
+<img width="1080" height="2400" alt="Screenshot_20251116_235111" src="https://github.com/user-attachments/assets/f3f4446a-ba60-4321-8d18-ff9098d4de3e" />
+<img width="1080" height="2400" alt="Screenshot_20251116_235142" src="https://github.com/user-attachments/assets/db7ac999-8b49-4e10-b174-039645145c2d" />
 
 Mostra a recomendação final com um fundo temático e opções para:
 
@@ -120,15 +95,7 @@ Criar nova recomendação
 
 Kotlin
 
-Android Jetpack
-
-ViewModel
-
-LiveData
-
-Intent & Navigation
-
-Material Design
+Android Studio
 
 💡 Objetivo do Projeto
 
